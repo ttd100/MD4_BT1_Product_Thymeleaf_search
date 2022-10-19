@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Product manager</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+
+<table border="1px" width="50%">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="btn btn-primary" href="/showCreate">Create</a>
+            <form class="d-flex" action="/search">
+                <input name="nameProduct" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <tr>
+        <th>STT</th>
+        <th>NAME</th>
+        <th>PRICE</th>
+        <th>DESC</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    <tr th:each="product:${listProduct}">
+        <td th:text="${product.id}"></td>
+        <td th:text="${product.name}"></td>
+        <td th:text="${product.price}"></td>
+        <td th:text="${product.description}"></td>
+        <td><a th:href="@{/showEdit(id=${product.getId()})}">Edit</a></td>
+        <td><a th:href="@{/showDelete(id=${product.getId()})}">Delete</a></td>
+    </tr>
+</table>
+
+</body>
+</html>

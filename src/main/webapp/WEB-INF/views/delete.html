@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" action="/delete" th:object="${delete}">
+    <input type="text" hidden th:field="${delete.id}"/>
+    <input type="text" th:field="${delete.name}"/>
+    <input type="text" th:field="${delete.price}"/>
+    <input type="text" th:field="${delete.description}"/>
+    <button type="submit" > delete </button>
+</form>
+<a href="/">No Delete</a>
+</body>
+</html>
